@@ -21,8 +21,8 @@ return new class extends Migration
             $table->unsignedInteger('subtotal');
             $table->timestamps();
 
-          /*   $table->foreign('transaction_id')->references('id')->on('transactions')->onDelete('cascade');
-            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade'); */
+            $table->foreign('transaction_id')->references('id')->on('transactions')->onDelete('cascade');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
     }
 

@@ -11,9 +11,7 @@ use App\Models\Transaction;
 
 class User extends Authenticatable
 {
-    public function transactions() {
-        return $this->hasMany(Transaction::class);
-    }
+   
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -45,6 +43,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    public function transactions() {
+        return $this->hasMany(Transaction::class);
+    }
    
 }

@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
-   public function store()
+   public function store(Request $request)
    {
-    DB::beginTransaction();
+  /*   DB::beginTransaction(); */
 
-    try {
-        auth()->user()
+    /* try { */
+      /*   Auth::user()
             ->transactions()
             ->create(request()->all())
             ->details()
@@ -35,9 +35,10 @@ class TransactionController extends Controller
         DB::commit();
     } catch (Exception $e) {
         DB::rollBack();
-    }
+    } */
 
-    return redirect()->route('transaction.show', Transaction::latest()->first());
+    // return redirect()->route('transaction.show', Transaction::latest()->first());
+    return Auth::user()->transactions();
    }
 
    public function index()

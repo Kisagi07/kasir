@@ -16,9 +16,7 @@
             </thead>
             <tbody>
                 @foreach ($transactions as $transaction)
-                    <tr
-                    onclick="window.location='{{ route('transaction.show', $transaction) }}'"
-                    style="cursor: pointer;">
+                    <tr onclick="{{ route('transaction.show', $transaction) }}" style="cursor: pointer;">
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $transaction->user->name }}</td>
                     <td>Rp {{ $transaction->total }}</td>
